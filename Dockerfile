@@ -17,11 +17,16 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y iputils-ping iproute2 less software-properties-common libstdc++5
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y xterm fxload libxm4
+
+# for Debian based container
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gpg iceweasel
+
+# for Ubuntu based container
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gnupg firefox
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libqt4-network
 
-# not necessary for ubuntu:14.04
+# not necessary for ubuntu:14.04, but for newer versions
 #RUN add-apt-repository ppa:zeehio/libxp \
 #    && apt-get update
 
@@ -29,11 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libxp6
 
 COPY entrypoint.sh /opt/entrypoint.sh
 ENTRYPOINT "/opt/entrypoint.sh"
-#ENTRYPOINT "/bin/bash"
 CMD ""
 
 USER xilinx
-WORKDIR /home/xilinx
-RUN mkdir -p /home/xilinx/.Xilinx \
-    && touch /home/xilinx/.Xilinx/Xilinx.lic
 WORKDIR /code

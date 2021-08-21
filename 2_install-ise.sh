@@ -10,10 +10,6 @@ docker run \
         --entrypoint "/opt/assets/Xilinx_ISE_DS_14.7_1015_1/xsetup" \
         xilinx-ise
 
-echo "creating docker image from docker container. This will take soe minutes, please don't interrupt!"
+echo "creating docker image from docker container. This will take a long time (e.g. 30 minutes), please don't interrupt!"
 docker commit xilinx-ise-installer xilinx-ise
-
-        #--entrypoint "/bin/bash" \
-        #-u xilinx \
-        #-v /tmp/.X11-unix:/tmp/.X11-unix \
-        #-v /sys:/sys:ro \
+docker rm xilinx-ise-installer
