@@ -32,6 +32,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libqt4-network
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libxp6
 
+# The script /opt/Xilinx/14.7/ISE_DS/ISE/sysgen/util/sysgen assumes bash features for sh, so we use bash for sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 COPY entrypoint.sh /opt/entrypoint.sh
 ENTRYPOINT "/opt/entrypoint.sh"
 CMD ""
