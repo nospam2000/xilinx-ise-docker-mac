@@ -11,6 +11,7 @@ Change some Preferences in the Security tab:
  - "Authenticate connections": disabled
  - "Allow connections from network client": enabled  
 I'm looking how to do this correctly because those settings open some security holes which is really bad!
+Probably you need to use `xauth` and `xhost` and map the file ~/.Authority into the container.
 2. Download the installation single *tar file* of Xilinx ISE "Xilinx_ISE_DS_14.7_1015_1.tar" (not the multi part one or the Windows version)
  - download overview page: <https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive-ise.html>
  - full installer for Linux download page: <https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_ISE_DS_Lin_14.7_1015_1.tar>
@@ -28,6 +29,17 @@ The directory "/code/.xilinx" in the Docker container is mapped to "~/Documents/
 You might need to adapt the value of the environment variable "DISPLAY". In my case it ends with ":1" but typically it should be ":0".
 There are some other tweaks which can be changed in "run.sh".
 
-Some further hints:
+# JTAG programming of a XC9572XL device
+The directory "openocd" contain a config file which can be used to program a SVF file recorded by ISE iMPACT.
+Use the menu commands "Output/SVF File/Create SVF File" and "Output/SVF File/Stop Writing to SVF File" to create the SVF file.
+Only record the commands "erase" and "program", the commands "blank check" and "verify" will not work.
+
+The example openocd config uses a J-Link programmer, but you can use any other JTAG programmer.
+I used the TRST pin to reset the CPLD.
+You need to adapt the filename "second.svf" to your project.  
+`openocd` needs to be installed and executed on the host computer because within the container no USB access is possible in Docker for Mac.
+
+# Some useful links
  - <https://wiki.ubuntuusers.de/Archiv/Xilinx_ISE/>
+ - <https://github.com/jimmo/docker-xilinx>
 
