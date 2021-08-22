@@ -14,6 +14,7 @@ cmd="-c /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/ise"
 docker run -it --rm \
     -v "${HOME}/Documents/Xilinx/code:/code" \
     -v "${HOME}/Documents/Xilinx/lic:/code/.xilinx" \
+    -v "${HOME}/.Xauthority:/code/.Xauthority" \
     -e "DISPLAY=host.docker.internal${DISPLAY_POSTFIX}" \
     -e XILINXD_LICENSE_FILE=/code/.xilinx/Xilinx.lic \
     -e HOME=/code \
