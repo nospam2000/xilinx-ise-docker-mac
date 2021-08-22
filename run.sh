@@ -7,6 +7,7 @@ DISPLAY_POSTFIX=":1"
 #   /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/ise
 #   /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/fpga_editor
 #   /opt/Xilinx/14.7/ISE_DS/common/bin/lin64/xlcm
+#   /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/impact
 cmd="-c /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/ise"
 
 # mac address and hostname are set to get a constant ID for the node specific licenses
