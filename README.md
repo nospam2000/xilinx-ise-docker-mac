@@ -81,4 +81,5 @@ Now you can program your Xilinx CPLD:
  - <http://homepages.hs-bremen.de/~jbredereke/en/software/xilinx-docker/index.html>
  - <https://gist.github.com/cschiewek/246a244ba23da8b9f0e7b11a68bf3285>
  - <https://github.com/DrSnowbird/jdk-mvn-py3-x11>
+ - <https://wiki.archlinux.org/title/Xilinx_ISE_WebPACK>
 

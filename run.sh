@@ -18,6 +18,7 @@ docker run -it --rm \
     -e "DISPLAY=host.docker.internal${DISPLAY_POSTFIX}" \
     -e XILINXD_LICENSE_FILE=/code/.xilinx/Xilinx.lic \
     -e HOME=/code \
+    -e XKEYSYMDB=/usr/share/X11/XKeysymDB \
     -u "$(id -u):$(id -g)" \
     --entrypoint "/opt/entrypoint.sh" \
     --mac-address=02:43:ac:11:ff:fe  \

@@ -7,7 +7,7 @@ docker run \
         -it \
         -e "DISPLAY=host.docker.internal:1" \
         --network=host \
-        --entrypoint "/opt/assets/Xilinx_ISE_DS_14.7_1015_1/xsetup" \
+        --entrypoint "/opt/entrypoint_setup.sh" \
         xilinx-ise
 
 echo "creating docker image from docker container. This will take a long time (e.g. 30 minutes), please don't interrupt!"
