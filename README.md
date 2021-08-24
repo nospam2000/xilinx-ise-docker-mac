@@ -39,7 +39,46 @@ I used the TRST pin to reset the CPLD.
 You need to adapt the filename "second.svf" to your project.  
 `openocd` needs to be installed and executed on the host computer because within the container no USB access is possible in Docker for Mac.
 
+## Use Platform Cable USB II Model DLC10
+
+Get the firmware hex file `xusb_xp2.hex`. You can find that file in the installation path of Xilinx ISE.
+Alternatively you can download it from here:: <https://www.xilinx.com/member/forms/download/design-license.html?cid=103670>
+Extract the downloaded archive: `tar xzf install_drivers.tar.gz` 
+The only file we need is `install_drivers/linux_drivers/pcusb/xusb_xp2.hex`.
+
+Download and build fxload from here: <https://github.com/accesio/fxload>
+````
+git clone https://github.com/accesio/fxload.git
+cd fxload
+mkdir build
+cd build
+cmake ..
+make
+sudo install -b -d fxload /usr/local/bin/
+cd ../..
+````
+
+Download and build xc3sprog from here <https://github.com/matrix-io/xc3sprog> (disabling WIRINGPI is essential on non-RasPi hardware!)
+````
+git clone https://github.com/matrix-io/xc3sprog.git
+cd xc3sprog
+cmake -DUSE_WIRINGPI=OFF .
+sudo make install
+cd ..
+````
+
+run the following command to load the firmware to RAM (adapt the path of the .hex file according where you extracted install_drivers.tar.gz):
+`fxload -D 03fd:0013 -t fx2 -I install_drivers/linux_drivers/pcusb/xusb_xp2.hex`
+The firmware needs to be reloaded whenever the programmer is power-cycled. Maybe it could be loaded to flash memory?
+
+Now you can program your Xilinx CPLD:
+`xc3sprog -c xpc ...`
+
 # Some useful links
  - <https://wiki.ubuntuusers.de/Archiv/Xilinx_ISE/>
  - <https://github.com/jimmo/docker-xilinx>
+ - <https://www.philipzucker.com/install-webpack-ise-14-7-ubuntu-spartan-ax309-fpga-board/>
+ - <http://homepages.hs-bremen.de/~jbredereke/en/software/xilinx-docker/index.html>
+ - <https://gist.github.com/cschiewek/246a244ba23da8b9f0e7b11a68bf3285>
+ - <https://github.com/DrSnowbird/jdk-mvn-py3-x11>
 
