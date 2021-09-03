@@ -29,8 +29,9 @@ The directory "/code/.xilinx" in the Docker container is mapped to "\~/Documents
 You might need to adapt the value of the environment variable "DISPLAY". In my first try it ended with ":1" but typically it should be ":0".
 There are some other tweaks which can be changed in "run.sh".
 
-# JTAG programming of a XC9572XL device
-The directory "openocd" contain a config file which can be used to program a SVF file recorded by ISE iMPACT.
+# JTAG programming of a XC9572XL device on Mac OSX
+## Use openocd
+The directory "openocd" contains a config file which can be used to program a SVF file recorded by ISE iMPACT.
 Use the menu commands "Output/SVF File/Create SVF File" and "Output/SVF File/Stop Writing to SVF File" to create the SVF file.
 Only record the commands "erase" and "program", the commands "blank check" and "verify" will not work.
 
@@ -40,7 +41,6 @@ You need to adapt the filename "second.svf" to your project.
 `openocd` needs to be installed and executed on the host computer because within the container no USB access is possible in Docker for Mac.
 
 ## Use Platform Cable USB II Model DLC10
-
 Get the firmware hex file `xusb_xp2.hex`. You can find that file in the installation path of Xilinx ISE.
 Alternatively you can download it from here:: <https://www.xilinx.com/member/forms/download/design-license.html?cid=103670>
 Extract the downloaded archive: `tar xzf install_drivers.tar.gz` 
