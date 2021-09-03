@@ -21,10 +21,10 @@ Probably you need to use `xauth` and `xhost` and map the file ~/.Authority into 
 6. run "run.sh" to start ISE
 7. In the first run ISE will complain a missing license and start the license manager.
 Choose the offline mode and save the "Xilinx_Connect_Later.html" file to /code.
-Open the "~/Documents/Xilinx/code/Xilinx_Connect_Later.html" file in the Web-Browser of your host computer and apply for the needed licenses.
-After you get the license file by email, save it to "~/Documents/Xilinx/lic/Xilinx.lic"
-8. The directory "/code" in the Docker container is mapped to "~/Documents/Xilinx/code" on the host computer.
-The directory "/code/.xilinx" in the Docker container is mapped to "~/Documents/Xilinx/lic" on the host computer
+Open the "\~/Documents/Xilinx/code/Xilinx_Connect_Later.html" file in the Web-Browser of your host computer and apply for the needed licenses.
+After you get the license file by email, save it to "\~/Documents/Xilinx/lic/Xilinx.lic"
+8. The directory "/code" in the Docker container is mapped to "\~/Documents/Xilinx/code" on the host computer.
+The directory "/code/.xilinx" in the Docker container is mapped to "\~/Documents/Xilinx/lic" on the host computer
 
 You might need to adapt the value of the environment variable "DISPLAY". In my case it ends with ":1" but typically it should be ":0".
 There are some other tweaks which can be changed in "run.sh".
@@ -58,7 +58,7 @@ sudo install -b -d fxload /usr/local/bin/
 cd ../..
 ````
 
-Download and build xc3sprog from here <https://github.com/matrix-io/xc3sprog> (disabling WIRINGPI is essential on non-RasPi hardware!)
+Download and build xc3sprog from here <https://github.com/matrix-io/xc3sprog> (disabling WIRINGPI via the cmake parameter `-DUSE_WIRINGPI=OFF` is essential on non-RasPi hardware!)
 ````
 git clone https://github.com/matrix-io/xc3sprog.git
 cd xc3sprog
