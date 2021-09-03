@@ -26,7 +26,7 @@ After you get the license file by email, save it to "\~/Documents/Xilinx/lic/Xil
 8. The directory "/code" in the Docker container is mapped to "\~/Documents/Xilinx/code" on the host computer.
 The directory "/code/.xilinx" in the Docker container is mapped to "\~/Documents/Xilinx/lic" on the host computer
 
-You might need to adapt the value of the environment variable "DISPLAY". In my case it ends with ":1" but typically it should be ":0".
+You might need to adapt the value of the environment variable "DISPLAY". In my first try it ended with ":1" but typically it should be ":0".
 There are some other tweaks which can be changed in "run.sh".
 
 # JTAG programming of a XC9572XL device
