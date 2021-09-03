@@ -42,7 +42,7 @@ You need to adapt the filename "second.svf" to your project.
 
 ## Use Platform Cable USB II Model DLC10
 Get the firmware hex file `xusb_xp2.hex`. You can find that file in the installation path of Xilinx ISE.
-Alternatively you can download it from here:: <https://www.xilinx.com/member/forms/download/design-license.html?cid=103670>
+Alternatively you can download it from here:: <https://www.xilinx.com/support/documentation/user_guides/install_drivers.tar.gz>
 Extract the downloaded archive: `tar xzf install_drivers.tar.gz` 
 The only file we need is `install_drivers/linux_drivers/pcusb/xusb_xp2.hex`.
 
