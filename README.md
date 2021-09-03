@@ -33,7 +33,7 @@ There are some other tweaks which can be changed in "run.sh".
 ## Use openocd
 The directory "openocd" contains a config file which can be used to program a SVF file recorded by ISE iMPACT.
 Use the menu commands "Output/SVF File/Create SVF File" and "Output/SVF File/Stop Writing to SVF File" to create the SVF file.
-Only record the commands "erase" and "program", the commands "blank check" and "verify" will not work.
+Only record the commands "erase" and "program", the commands "blank check" and "verify" might not work.
 
 The example openocd config uses a J-Link programmer, but you can use any other JTAG programmer.
 I used the TRST pin to reset the CPLD.
