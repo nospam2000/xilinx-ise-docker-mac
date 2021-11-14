@@ -21,18 +21,19 @@ Probably you need to use `xauth` and `xhost` and map the file ~/.Authority into 
 6. run "run.sh" to start ISE
 7. In the first run ISE will complain a missing license and start the license manager.
 Choose the offline mode and save the "Xilinx_Connect_Later.html" file to /code.
-Open the "~/Documents/Xilinx/code/Xilinx_Connect_Later.html" file in the Web-Browser of your host computer and apply for the needed licenses.
-After you get the license file by email, save it to "~/Documents/Xilinx/lic/Xilinx.lic"
-8. The directory "/code" in the Docker container is mapped to "~/Documents/Xilinx/code" on the host computer.
-The directory "/code/.xilinx" in the Docker container is mapped to "~/Documents/Xilinx/lic" on the host computer
+Open the "\~/Documents/Xilinx/code/Xilinx_Connect_Later.html" file in the Web-Browser of your host computer and apply for the needed licenses.
+After you get the license file by email, save it to "\~/Documents/Xilinx/lic/Xilinx.lic"
+8. The directory "/code" in the Docker container is mapped to "\~/Documents/Xilinx/code" on the host computer.
+The directory "/code/.xilinx" in the Docker container is mapped to "\~/Documents/Xilinx/lic" on the host computer
 
-You might need to adapt the value of the environment variable "DISPLAY". In my case it ends with ":1" but typically it should be ":0".
+You might need to adapt the value of the environment variable "DISPLAY". In my first try it ended with ":1" but typically it should be ":0".
 There are some other tweaks which can be changed in "run.sh".
 
-# JTAG programming of a XC9572XL device
-The directory "openocd" contain a config file which can be used to program a SVF file recorded by ISE iMPACT.
+# JTAG programming of a XC9572XL device on Mac OSX
+## Use openocd
+The directory "openocd" contains a config file which can be used to program a SVF file recorded by ISE iMPACT.
 Use the menu commands "Output/SVF File/Create SVF File" and "Output/SVF File/Stop Writing to SVF File" to create the SVF file.
-Only record the commands "erase" and "program", the commands "blank check" and "verify" will not work.
+Only record the commands "erase" and "program", the commands "blank check" and "verify" might not work.
 
 The example openocd config uses a J-Link programmer, but you can use any other JTAG programmer.
 I used the TRST pin to reset the CPLD.
@@ -40,9 +41,8 @@ You need to adapt the filename "second.svf" to your project.
 `openocd` needs to be installed and executed on the host computer because within the container no USB access is possible in Docker for Mac.
 
 ## Use Platform Cable USB II Model DLC10
-
 Get the firmware hex file `xusb_xp2.hex`. You can find that file in the installation path of Xilinx ISE.
-Alternatively you can download it from here:: <https://www.xilinx.com/member/forms/download/design-license.html?cid=103670>
+Alternatively you can download it from here:: <https://www.xilinx.com/support/documentation/user_guides/install_drivers.tar.gz>
 Extract the downloaded archive: `tar xzf install_drivers.tar.gz` 
 The only file we need is `install_drivers/linux_drivers/pcusb/xusb_xp2.hex`.
 
@@ -58,7 +58,7 @@ sudo install -b -d fxload /usr/local/bin/
 cd ../..
 ````
 
-Download and build xc3sprog from here <https://github.com/matrix-io/xc3sprog> (disabling WIRINGPI is essential on non-RasPi hardware!)
+Download and build xc3sprog from here <https://github.com/matrix-io/xc3sprog> (disabling WIRINGPI via the cmake parameter `-DUSE_WIRINGPI=OFF` is essential on non-RasPi hardware!)
 ````
 git clone https://github.com/matrix-io/xc3sprog.git
 cd xc3sprog
