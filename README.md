@@ -82,4 +82,5 @@ Now you can program your Xilinx CPLD:
  - <https://gist.github.com/cschiewek/246a244ba23da8b9f0e7b11a68bf3285>
  - <https://github.com/DrSnowbird/jdk-mvn-py3-x11>
  - <https://wiki.archlinux.org/title/Xilinx_ISE_WebPACK>
+ - <https://section5.ch/index.php/2017/01/20/669/>
 

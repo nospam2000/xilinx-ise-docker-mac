@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# you might need to change this to ":0" depending on your environment
-DISPLAY_POSTFIX=":1"
+DISPLAY_POSTFIX="$DISPLAY"
 
 # possible commands: 
 #   /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/ise
@@ -9,6 +8,9 @@ DISPLAY_POSTFIX=":1"
 #   /opt/Xilinx/14.7/ISE_DS/common/bin/lin64/xlcm
 #   /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/impact
 cmd="-c /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/ise"
+
+open -a Xquartz
+sleep 3
 
 # mac address and hostname are set to get a constant ID for the node specific licenses
 docker run -it --rm \
