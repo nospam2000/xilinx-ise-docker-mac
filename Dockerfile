@@ -12,7 +12,7 @@ RUN useradd -m xilinx -s /bin/bash \
 
 RUN apt-get update \
     && echo "tzdata tzdata/Zones/Europe select Berlin" | debconf-set-selections \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y iputils-ping iproute2 less software-properties-common libstdc++5 xterm fxload libxm4 libqt4-network
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y iputils-ping iproute2 less software-properties-common gcc libstdc++5 xterm fxload libxm4 libqt4-network
 
 # for Debian based container
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gpg iceweasel
